@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-api-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-api-back
+  template:
+    metadata:
+      labels:
+        app: python-api-back
+    spec:
+      containers:
+      - name: python-api-back
+        image: botman2000/createx_back
+        ports:
+        - containerPort: 5103
+        env:
+        - name: MONGO_URI
+          value: "mongodb://mongodb:27017/"
+        - name: DATABASE_NAME
+          value: "CreatexDatabase"
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-api-back
+spec:
+  selector:
+    app: python-api-back
+  ports:
+  - protocol: TCP
+    port: 5103
+    targetPort: 5103
+  type: LoadBalancer

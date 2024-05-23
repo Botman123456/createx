@@ -7,7 +7,7 @@ services:
     ports:
       - "5102:27017"
 
-  botman2000/python_back:
+  python_back:
     build: 
       context: C:\Users\Cristi\Desktop\createx\createx_back
       dockerfile: Dockerfile
@@ -20,10 +20,10 @@ services:
       MONGO_URI: "mongodb://mongodb:27017/"
       DATABASE_NAME: "CreatexDatabase"
 
-  botman2000/simple-html-page:
+  simple-html-page:
     build: 
       context: C:\Users\Cristi\Desktop\createx\createx_front
       dockerfile: Dockerfile
     container_name: front_createx
     ports:
-      - "8080:80"
+      - "5200:80"

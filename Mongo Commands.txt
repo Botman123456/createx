@@ -2,3 +2,7 @@
 2. use CreatexDatabase
 3. db.createCollection('Headers')
 4. db.Headers.insertMany([{name: 'Titlu 1 (baza de date)'}, {name: 'Titlu 2 (baza de date)'}])
+
+
+Arata datele din baza
+db.Headers.find()
